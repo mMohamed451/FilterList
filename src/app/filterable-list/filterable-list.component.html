@@ -1,0 +1,25 @@
+<div>
+  <input
+    type="text"
+    [(ngModel)]="searchInput"
+    (input)="searchPosts()"
+    placeholder="Search posts..."
+  />
+</div>
+@if(filteredPosts.length > 0;){ }@else {
+
+<ng-template #noPostsFound>
+  <p>No posts found.</p>
+</ng-template>
+
+}
+
+<div class="post-card">
+  @for (post of filteredPosts; track $index) {
+
+  <h3>
+    <a [routerLink]="['/post', post.id!]">{{ post.title }}</a>
+  </h3>
+  <p>{{ post.body }}</p>
+  }
+</div>
