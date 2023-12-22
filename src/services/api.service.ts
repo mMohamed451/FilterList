@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from '../models/post.model';
 import { Comment } from '../models/comment.model';
-import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -23,11 +22,5 @@ export class ApiService {
   getComments(postId: number): Observable<Comment[]> {
     const url = `${this.baseUrl}/comments?postId=${postId}`;
     return this.http.get<Comment[]>(url);
-  }
-
-  // API call to fetch user details
-  getUsers(userId: number): Observable<User> {
-    const url = `${this.baseUrl}/users/${userId}`;
-    return this.http.get<User>(url);
   }
 }

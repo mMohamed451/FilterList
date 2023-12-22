@@ -4,11 +4,12 @@ import { Post } from '../../models/post.model';
 
 @Component({
   selector: 'app-post-card',
+  standalone: true,
   templateUrl: './post-card.component.html',
   styleUrls: ['./post-card.component.scss']
 })
 export class PostCardComponent {
-  @Input() post: Post | undefined;
+  @Input() post!: Post;
 
   constructor(private router: Router) { }
 

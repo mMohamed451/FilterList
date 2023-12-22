@@ -4,12 +4,13 @@ import { ApiService } from '../../services/api.service';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { tap } from 'rxjs/operators';
+import { PostCardComponent } from '../post-card/post-card.component';
 
 @Component({
   selector: 'app-filterable-list',
   templateUrl: './filterable-list.component.html',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, PostCardComponent],
   styleUrls: ['./filterable-list.component.scss'],
 })
 export class FilterableListComponent implements OnInit {
@@ -27,7 +28,7 @@ export class FilterableListComponent implements OnInit {
     this.apiService
       .getPosts()
       .pipe(
-        tap((posts: any) => {
+        tap((posts: Post[]) => {
           this.posts = posts;
           this.filteredPosts = posts;
         })
@@ -35,14 +36,13 @@ export class FilterableListComponent implements OnInit {
       .subscribe(),
       (error: any) => {
         console.error('Error fetching posts:', error);
-        // Handle error and display an error message to the user
       };
   }
 
   searchPosts(): void {
     const searchText = this.searchInput.toLowerCase();
     this.filteredPosts = this.posts.filter(
-      (post) =>
+      (post: Post) =>
         post.title.toLowerCase().includes(searchText) ||
         post.body.toLowerCase().includes(searchText)
     );

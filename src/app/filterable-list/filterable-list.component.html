@@ -1,25 +1,27 @@
+<div class="max-w-xl mx-auto text-center">
+  <div class="inline-flex px-4 py-1.5 mx-auto rounded-full">
+    <p class="text-4xl font-semibold tracking-widest text-g uppercase">
+      Filterable List
+    </p>
+  </div>
+  <p
+    class="mt-4 text-base leading-relaxed text-gray-600 group-hover:text-white"
+  >
+    Choose a post from the list or search for a post.
+  </p>
+</div>
 <div>
   <input
     type="text"
     [(ngModel)]="searchInput"
     (input)="searchPosts()"
     placeholder="Search posts..."
+    class="h-12 min-w-[12rem] rounded-lg border-emerald-500 indent-4 text-emerald-900 shadow-lg focus:outline-none focus:ring focus:ring-blue-500 w-[80%] m-auto flex mt-3"
   />
-</div>
-@if(filteredPosts.length > 0;){ }@else {
 
-<ng-template #noPostsFound>
-  <p>No posts found.</p>
-</ng-template>
 
-}
-
-<div class="post-card">
+<div class="grid grid-cols-1 gap-2 mt-12 sm:grid-cols-3 lg:mt-20">
   @for (post of filteredPosts; track $index) {
-
-  <h3>
-    <a [routerLink]="['/post', post.id!]">{{ post.title }}</a>
-  </h3>
-  <p>{{ post.body }}</p>
+  <app-post-card [post]="post"></app-post-card>
   }
 </div>

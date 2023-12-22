@@ -1,4 +1,13 @@
-<div class="post-card" (click)="navigateToPostDetails(post?.id!)">
-  <h3>{{ post?.title }}</h3>
-  <p>{{ post?.body }}</p>
+<div (click)="navigateToPostDetails(post?.id!)" class="transition-all  duration-1000 bg-white hover:bg-blue-500  hover:shadow-xl m-2 p-4 relative z-40 group  ">
+  <div class=" absolute  bg-blue-500/50 top-0 left-0 w-24 h-1 z-30  transition-all duration-200   group-hover:bg-white group-hover:w-1/2  ">
+  </div>
+  <div class="py-2 px-9 relative  ">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 6V20H8V6H4L12 14L20 6Z" fill="#000"/>
+      <path d="M24 20H22V4C22 2.89543 21.1046 2 20 2H4C2.89543 2 2 2.89543 2 4V20H0V22H24V20Z" fill="#C4C4C4"/>
+    </svg>
+    <h3 class="mt-8 text-lg font-semibold text-black group-hover:text-white ">{{ post?.title }}
+    </h3>
+    <p class="mt-4 text-base text-gray-600 group-hover:text-white  ">{{ post?.body }}</p>
+  </div>
 </div>

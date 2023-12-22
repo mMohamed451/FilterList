@@ -1,0 +1,27 @@
+<div class="font-light text-gray-600">
+  <a href="#" class="flex items-center mt-6 mb-6"
+    ><img
+      src="https://avatars.githubusercontent.com/u/71964085?v=4"
+      alt="avatar"
+      class="hidden object-cover w-14 h-14 mx-4 rounded-full sm:block"
+    />
+    <h1 class="font-bold text-gray-700 hover:underline">
+      By {{ comment.email }}
+    </h1>
+  </a>
+</div>
+
+<div
+  class="max-w-4xl px-10 mx-auto text-2xl text-gray-700 mt-4 rounded bg-gray-100"
+>
+  <div>
+    <p class="mt-2 p-2">
+      {{ comment.name }}
+    </p>
+  </div>
+  <div>
+    <p class="p-2 text-[15px]">
+      {{ comment.body }}
+    </p>
+  </div>
+</div>
